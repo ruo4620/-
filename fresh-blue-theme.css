@@ -1,4 +1,19 @@
-/* 冰川（沁柠茶）主题 - 远程主题CSS */
+/* 冰川沁柠茶主题 - 远程主题CSS */
+:root {
+    --screen-width: 290px;
+    --screen-height: 630px;
+    --primary-bg: #F2F8FF; /* 奶霜白 */
+    --secondary-bg: #FFFFFF; 
+    --border-color: #BEDDFF; /* 柔云蓝 */
+    --text-primary: #5A8FD3; 
+    --text-secondary: #8A8A8A;
+    --accent-color: #9BCAFF; /* 晴空蓝 */
+    --highlight-color: #E3F2FF; /* 浅冰蓝 */
+    --button-bg: #BEDDFF;
+    --button-text: #3A6BA6;
+}
+
+/* 字体设置 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -6,136 +21,109 @@
     font-style: normal;
 }
 
-:root {
-    /* 基础尺寸 */
-    --screen-width: 290px;
-    --screen-height: 630px;
-    
-    /* 冰川色调配色 */
-    --primary-bg: #F2F8FF;       /* 奶霜白 */
-    --secondary-bg: #FFFFFF;     /* 纯白背景 */
-    --accent-light: #E3F2FF;     /* 浅冰蓝 */
-    --accent-medium: #BEDDFF;    /* 柔云蓝 */
-    --accent-dark: #9BCAFF;      /* 晴空蓝 */
-    
-    /* 文字颜色 */
-    --text-primary: #5C8FCC;     /* 深蓝色文字 */
-    --text-secondary: #8AABC8;   /* 浅蓝色文字 */
-    --text-accent: #3A6EA5;      /* 强调文字 */
-    
-    /* 边框和阴影 */
-    --border-color: #D4E7FF;     /* 浅蓝色边框 */
-    --shadow-light: rgba(155, 202, 255, 0.2);
-    --shadow-medium: rgba(155, 202, 255, 0.4);
-    
-    /* 按钮和交互元素 */
-    --button-bg: #BEDDFF;
-    --button-hover: #9BCAFF;
-    --button-text: #3A6EA5;
-    
-    /* 消息气泡 */
-    --bubble-user-bg: linear-gradient(135deg, #E3F2FF 0%, #BEDDFF 100%);
-    --bubble-ai-bg: linear-gradient(135deg, #FFFFFF 0%, #F2F8FF 100%);
-    --bubble-text-user: #3A6EA5;
-    --bubble-text-ai: #5C8FCC;
-}
-
-/* 基础样式重置 */
-body {
-    font-family: '天使喵喵酱', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--primary-bg);
-    color: var(--text-primary);
-}
-
-/* 手机框架样式 */
+/* 手机框架 - 圆角设计 */
 #phone-frame {
     padding: 8px;
-    background: linear-gradient(145deg, #E3F2FF, #F2F8FF);
+    background-color: var(--secondary-bg);
     border-radius: 30px;
-    box-shadow: 0 20px 20px var(--shadow-medium), 
-                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 20px rgba(0,0,0,0.15), 
+                inset 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    font-family: '天使喵喵酱', -apple-system, sans-serif;
+}
+
+/* 手机屏幕 */
+#phone-screen {
+    width: var(--screen-width);
+    height: var(--screen-height);
+    background-color: var(--primary-bg);
+    border-radius: 25px;
+    overflow: hidden;
     position: relative;
     border: 1px solid var(--border-color);
 }
 
-/* 状态栏样式 */
+/* 状态栏 */
 #status-bar {
-    background-color: var(--accent-light);
-    color: var(--text-accent);
-    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(to right, var(--highlight-color), var(--accent-color));
+    color: var(--text-primary);
+    padding: 5px 15px;
+    font-size: 12px;
 }
 
-/* 应用图标样式 */
+/* 应用图标 */
 .app-icon {
-    background-color: var(--accent-light);
+    background-color: var(--highlight-color);
+    border-radius: 18px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 8px var(--shadow-light);
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .app-icon:hover {
-    transform: translateY(-3px);
-    background-color: var(--accent-medium);
+    background-color: var(--accent-color);
+    transform: scale(1.05);
 }
 
-/* 消息气泡样式 */
+/* 按钮样式 */
+button, .form-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover, .form-button:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 8px rgba(155, 202, 255, 0.3);
+}
+
+/* 消息气泡 */
 .message-bubble .content {
     position: relative;
     padding: 12px;
     border-radius: 25px;
-    box-shadow: 0 6px 8px var(--shadow-light), 
-                inset 0 4px 15px rgba(255, 255, 255, 0.5), 
-                inset 0 4px 7px rgba(0, 0, 0, 0.05);
-    font-family: '天使喵喵酱', sans-serif;
+    background-color: var(--highlight-color);
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 
+                inset 0 2px 4px rgba(255,255,255,0.5);
 }
 
 .message-bubble.user .content {
-    background: var(--bubble-user-bg);
-    color: var(--bubble-text-user);
-    border: 1px solid var(--border-color);
-}
-
-.message-bubble.ai .content {
-    background: var(--bubble-ai-bg);
-    color: var(--bubble-text-ai);
-    border: 1px solid var(--border-color);
-}
-
-/* 按钮样式 */
-.button, .form-button {
-    background-color: var(--button-bg);
+    background: radial-gradient(
+        ellipse at 100% 20%,
+        var(--accent-color) 0%,
+        var(--highlight-color) 40%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
     color: var(--button-text);
+}
+
+/* 输入框 */
+#chat-input {
+    background-color: var(--highlight-color);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.button:hover, .form-button:hover {
-    background-color: var(--button-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-/* 输入框样式 */
-input, textarea, select {
-    background-color: var(--accent-light);
-    border: 1px solid var(--border-color);
     color: var(--text-primary);
-    border-radius: 15px;
-    padding: 8px 12px;
 }
 
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--accent-dark);
-    box-shadow: 0 0 0 2px var(--shadow-light);
+/* 模态框 */
+.modal-content {
+    background-color: var(--primary-bg);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
 }
 
-/* 头部样式 */
-.header {
-    background: linear-gradient(to right, var(--accent-light), var(--accent-medium));
-    color: var(--text-accent);
-    border-bottom: 1px solid var(--border-color);
+/* 滚动条 */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 3px;
 }
 
 /* 动画效果 */
@@ -146,45 +134,21 @@ input:focus, textarea:focus, select:focus {
     75% { transform: rotate(-1.5deg); }
 }
 
-/* 特殊元素动画 */
-.notch {
-    animation: gentleSway 8s ease-in-out infinite;
+/* 应用动画到装饰元素 */
+.decorative-element {
+    animation: gentleSway 6s ease-in-out infinite;
 }
 
-/* 音乐播放器样式 */
-#music-player-overlay {
-    background: linear-gradient(135deg, rgba(227, 242, 255, 0.9), rgba(190, 221, 255, 0.9));
+/* 主题切换器样式 */
+.theme-selector label {
+    background-color: var(--highlight-color);
+    border-radius: 12px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 10px 20px var(--shadow-medium);
 }
 
-/* 滚动条样式 */
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--accent-light);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--accent-dark);
-    border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--text-accent);
-}
-
-/* 响应式调整 */
-@media (max-width: 400px) {
-    :root {
-        --screen-width: 100%;
-        --screen-height: auto;
-    }
-    
-    #phone-frame {
-        border-radius: 0;
-        box-shadow: none;
-    }
-        }
+/* 壁纸预览 */
+#wallpaper-preview {
+    border-radius: 15px;
+    border: 2px dashed var(--border-color);
+    background-color: var(--highlight-color);
+                               }
