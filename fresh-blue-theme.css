@@ -1,4 +1,4 @@
-/* 冰川（沁柠茶）主题 -  */
+/* 冰川（沁柠茶）主题 - 修改版 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -42,6 +42,20 @@ body {
                 inset 0 2px 4px rgba(0, 0, 0, 0.05);
     position: relative;
     border: 1px solid var(--border-color);
+}
+
+/* 添加手机链挂件 */
+#phone-frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 30px;
+    height: 40px;
+    background-image: url('https://files.catbox.moe/2r5y7l.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
 }
 
 #phone-screen {
@@ -106,14 +120,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-color: transparent; /* 容器全透明 */
-    border: none;
+    background-color: transparent !important; /* 强制透明 */
+    border: none !important;
     border-radius: 15px;
     padding: 8px 5px;
     width: 60px;
     height: 80px;
     margin: 5px;
     position: relative;
+    box-shadow: none !important;
 }
 
 .app-icon .icon-bg {
