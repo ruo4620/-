@@ -48,8 +48,8 @@ body {
 #phone-frame::before {
     content: '';
     position: absolute;
-    top: 0px;
-    right: -190px;
+    top: -3px;
+    right: -220px;
     width: 300px;
     height: 400px;
     background-image: url('https://files.catbox.moe/djmh3e.gif');
