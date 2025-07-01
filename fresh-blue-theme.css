@@ -1,97 +1,145 @@
-/* 清新蓝主题 - 远程主题CSS */
-:root {
-    --primary-color: #e6f2ff;
-    --secondary-color: #cce5ff;
-    --accent-color: #66b3ff;
-    --text-primary: #333;
-    --text-secondary: #555;
-    --border-color: #b3d9ff;
-    --shadow-color: rgba(102, 179, 255, 0.2);
-    --background-color: #f5fbff;
-    --bubble-sent: #66b3ff;
-    --bubble-received: #e6f2ff;
+/* 寒蝉半圆体字体定义 */
+@font-face {
+  font-family: '寒蝉半圆体';
+  src: url('http://sharkpan.xyz/f/rDgWS6/%E5%AF%92%E8%9D%89%E5%8D%8A%E5%9C%86%E4%BD%93v3.0.ttf');
 }
 
-/* 手机外框样式 */
-#phone-frame {
-    background: linear-gradient(135deg, #e6f2ff, #cce5ff);
-    border: 1px solid #b3d9ff;
-    box-shadow: 0 0 15px rgba(102, 179, 255, 0.3);
-    border-radius: 40px;
-    padding: 15px;
-}
-
-/* 字体设置 - 寒蝉半圆体 */
+/* 基础样式重置 */
 body {
-    font-family: "Hanchan YuanTi", "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: '寒蝉半圆体', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: normal;
 }
 
-/* 顶部状态栏简化 */
+/* 手机外框样式 - 纤细浅蓝色渐变 */
+#phone-frame {
+  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+  border: 1px solid #b3d9ff;
+  box-shadow: 0 0 15px rgba(179, 217, 255, 0.5);
+  border-radius: 40px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 移除顶部栏 */
+.notch {
+  display: none;
+}
+
+/* 屏幕背景 - 渐变蓝 */
+#phone-screen {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e0f0ff 100%);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+/* 状态栏样式 */
 #status-bar {
-    background: transparent;
-    border-bottom: none;
+  background: rgba(204, 229, 255, 0.7);
+  color: #336699;
 }
 
-/* 应用图标网格 */
-#app-grid .app-icon .icon-bg {
-    background-color: var(--secondary-color);
-    box-shadow: 0 2px 5px var(--shadow-color);
+/* 应用图标网格背景 */
+#app-grid {
+  background: rgba(230, 242, 255, 0.5);
 }
 
-/* 聊天气泡样式 */
-.message-bubble.sent {
-    background-color: var(--bubble-sent);
-    color: white;
-    border-radius: 18px 18px 0 18px;
+/* 聊天气泡 - 增加水珠感和立体感 */
+.message-bubble {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-.message-bubble.received {
-    background-color: var(--bubble-received);
-    color: var(--text-primary);
-    border-radius: 18px 18px 18px 0;
-    border: 1px solid var(--border-color);
+.message-bubble:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: -1;
 }
 
-/* 输入区域 */
-#chat-input-area {
-    background-color: var(--primary-color);
-    border-top: 1px solid var(--border-color);
+.message-bubble.ai {
+  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+  border: 1px solid #b3d9ff;
 }
 
-#chat-input {
-    background-color: white;
-    border: 1px solid var(--border-color);
+.message-bubble.user {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+  border: 1px solid #d9ecff;
+}
+
+/* 页面切换动画和背景 */
+.screen {
+  background: linear-gradient(135deg, #f5fbff 0%, #e6f2ff 100%);
+  transition: all 0.3s ease;
 }
 
 /* 按钮样式 */
-.action-button, .form-button {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    box-shadow: 0 2px 5px var(--shadow-color);
+.button, .form-button {
+  background: linear-gradient(135deg, #cce5ff 0%, #99ccff 100%);
+  border: 1px solid #80bfff;
+  color: #336699;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover, .form-button:hover {
+  background: linear-gradient(135deg, #b3d9ff 0%, #80bfff 100%);
+}
+
+/* 输入框样式 */
+input, textarea, select {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #b3d9ff;
+  border-radius: 10px;
+}
+
+/* 时钟样式 */
+#clock-container {
+  color: #336699;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 状态栏电池图标 */
+.battery-icon {
+  border: 1px solid #80bfff;
+}
+
+.battery-level {
+  background: #4da6ff;
+}
+
+/* 模态窗口样式 */
+.modal-content {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e0f0ff 100%);
+  border: 1px solid #b3d9ff;
 }
 
 /* 音乐播放器样式 */
-#music-player-overlay {
-    background-color: rgba(230, 242, 255, 0.95);
-}
-
-/* 设置面板样式 */
-.form-container {
-    background-color: var(--primary-color);
+.music-player-window {
+  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+  border: 1px solid #b3d9ff;
 }
 
 /* 滚动条样式 */
-::-webkit-scrollbar-thumb {
-    background-color: var(--accent-color);
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* 加载字体 */
-@font-face {
-    font-family: "Hanchan YuanTi";
-    src: url("https://fastly.jsdelivr.net/npm/hanchan-yuanti@1.0.0/HanchanYuanTi-Regular.woff2") format("woff2"),
-         url("https://fastly.jsdelivr.net/npm/hanchan-yuanti@1.0.0/HanchanYuanTi-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+::-webkit-scrollbar-thumb {
+  background: #b3d9ff;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(204, 229, 255, 0.3);
 }
