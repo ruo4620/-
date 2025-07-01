@@ -48,10 +48,10 @@ body {
 #phone-frame::before {
     content: '';
     position: absolute;
-    top: -10px;
-    right: 20px;
-    width: 30px;
-    height: 40px;
+    top: -15px;
+    right: 30px;
+    width: 300px;
+    height: 400px;
     background-image: url('https://files.catbox.moe/2r5y7l.png');
     background-size: contain;
     background-repeat: no-repeat;
