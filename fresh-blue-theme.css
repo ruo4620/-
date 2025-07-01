@@ -1,42 +1,49 @@
 /* 冰川（沁柠茶）主题 - 远程主题CSS */
 :root {
     /* 主色调 */
-    --primary-color: #9BCAFF; /* 晴空蓝 - 主按钮/强调色 */
-    --primary-dark: #7BB2F0; /* 主按钮悬停色 */
-    --primary-light: #BEDDFF; /* 柔云蓝 - 辅助色 */
-    --primary-ultralight: #E3F2FF; /* 浅冰蓝 - 背景/高亮 */
+    --primary-color: #9BCAFF;       /* 晴空蓝 - 主要按钮、强调色 */
+    --primary-light: #E3F2FF;      /* 浅冰蓝 - 背景、高亮 */
+    --primary-lighter: #F2F8FF;    /* 奶霜白 - 卡片背景 */
+    --primary-dark: #BEDDFF;       /* 柔云蓝 - 边框、次级元素 */
+    
+    /* 文本颜色 */
+    --text-primary: #2C3E50;       /* 深色文本 */
+    --text-secondary: #5D6D7E;     /* 次级文本 */
+    --text-on-primary: #2C3E50;    /* 主色上的文本 */
     
     /* 背景色 */
-    --bg-primary: #F2F8FF; /* 奶霜白 - 主背景 */
-    --bg-secondary: #E3F2FF; /* 浅冰蓝 - 次级背景 */
-    --bg-tertiary: #FFFFFF; /* 白色 - 卡片背景 */
+    --bg-primary: #F2F8FF;         /* 主背景 - 奶霜白 */
+    --bg-secondary: #E3F2FF;       /* 次级背景 - 浅冰蓝 */
+    --bg-card: #FFFFFF;            /* 卡片背景 */
     
-    /* 文字色 */
-    --text-primary: #2C3E50; /* 深蓝灰 - 主要文字 */
-    --text-secondary: #5D6D7E; /* 中灰蓝 - 次要文字 */
-    --text-tertiary: #7F8C8D; /* 浅灰蓝 - 辅助文字 */
-    --text-on-primary: #FFFFFF; /* 白色 - 主按钮上的文字 */
+    /* 边框 */
+    --border-color: #BEDDFF;       /* 柔云蓝 */
+    --border-radius: 12px;
     
-    /* 边框色 */
-    --border-color: #BEDDFF; /* 柔云蓝 - 边框 */
-    --border-light: #E3F2FF; /* 浅冰蓝 - 浅边框 */
-    
-    /* 特殊元素 */
-    --link-color: #5D9CEC; /* 链接色 */
-    --error-color: #E74C3C; /* 错误提示 */
-    --success-color: #2ECC71; /* 成功提示 */
-    
-    /* 聊天泡泡 */
-    --chat-bubble-me: #9BCAFF; /* 我发送的消息 */
-    --chat-bubble-other: #FFFFFF; /* 接收的消息 */
-    --chat-bubble-text-me: #2C3E50; /* 我发送的文字 */
-    --chat-bubble-text-other: #2C3E50; /* 接收的文字 */
+    /* 聊天气泡 */
+    --bubble-them: #E3F2FF;        /* 对方气泡 - 浅冰蓝 */
+    --bubble-me: #9BCAFF;          /* 我的气泡 - 晴空蓝 */
+    --bubble-text-them: #2C3E50;   /* 对方气泡文本 */
+    --bubble-text-me: #2C3E50;     /* 我的气泡文本 */
 }
 
 /* 状态栏 */
 #status-bar {
     background-color: var(--primary-color);
     color: var(--text-on-primary);
+}
+
+.battery-icon {
+    border-color: var(--text-on-primary);
+}
+
+.battery-level {
+    background-color: var(--text-on-primary);
+}
+
+/* 应用图标 */
+.app-icon .icon-bg {
+    background-color: var(--primary-light);
 }
 
 /* 按钮样式 */
@@ -51,8 +58,8 @@
 
 /* 输入框 */
 input, textarea, select {
+    background-color: var(--bg-card);
     border-color: var(--border-color);
-    background-color: var(--bg-tertiary);
 }
 
 /* 聊天界面 */
@@ -60,47 +67,59 @@ input, textarea, select {
     background-color: var(--bg-primary);
 }
 
-/* 消息泡泡 */
-.message-bubble.me {
-    background-color: var(--chat-bubble-me);
-    color: var(--chat-bubble-text-me);
+.message-them .message-content {
+    background-color: var(--bubble-them);
+    color: var(--bubble-text-them);
 }
 
-.message-bubble.other {
-    background-color: var(--chat-bubble-other);
-    color: var(--chat-bubble-text-other);
-    border: 1px solid var(--border-light);
-}
-
-/* 应用图标 */
-.app-icon .icon-bg {
-    background-color: var(--primary-light);
+.message-me .message-content {
+    background-color: var(--bubble-me);
+    color: var(--bubble-text-me);
 }
 
 /* 模态框 */
 .modal-content {
     background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
 }
 
-/* 头部区域 */
+/* 头部 */
 .header {
     background-color: var(--primary-color);
     color: var(--text-on-primary);
 }
 
 /* 列表项 */
-.list-container div {
-    border-bottom: 1px solid var(--border-light);
+.list-container > div {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
 }
 
 /* 音乐播放器 */
 .music-player-window {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
 }
 
-/* 滚动条 */
-::-webkit-scrollbar-thumb {
+/* 表单组 */
+.form-group label {
+    color: var(--text-primary);
+}
+
+/* 切换开关 */
+.toggle-switch .slider {
+    background-color: var(--primary-dark);
+}
+
+.toggle-switch input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+/* 壁纸预览 */
+#wallpaper-preview {
+    border-color: var(--border-color);
+}
+
+/* 通知栏 */
+#notification-bar {
     background-color: var(--primary-light);
+    color: var(--text-primary);
 }
