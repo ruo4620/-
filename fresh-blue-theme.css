@@ -62,7 +62,7 @@ body {
 /* 刘海样式 - 高度减小 */
 .notch {
     width: 120px;
-    height: 18px; /* 原高度减小 */
+    height: 10px; /* 原高度减小 */
     background-color: var(--secondary-bg);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
