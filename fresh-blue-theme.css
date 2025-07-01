@@ -1,4 +1,4 @@
-/* 冰川沁柠茶主题 - 远程主题CSS */
+/* 冰川沁柠茶主题 - 修改版 */
 :root {
     /* 基础尺寸 */
     --screen-width: 290px;
@@ -32,7 +32,6 @@
     --bubble-text-ai: #5A5A5A;
 }
 
-/* 字体设置 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -45,7 +44,7 @@ body {
     background-color: var(--primary-bg);
 }
 
-/* 手机框架样式 */
+/* 手机框架样式 - 保持不变 */
 #phone-frame {
     padding: 8px;
     background: linear-gradient(145deg, #FFFFFF 0%, #E3F2FF 100%);
@@ -56,71 +55,60 @@ body {
     border: 1px solid var(--border-color);
 }
 
-/* 状态栏样式 */
-#status-bar {
-    background: linear-gradient(to right, #E3F2FF 0%, #BEDDFF 50%, #9BCAFF 100%);
+/* 1. 输入框缩短 */
+#chat-input {
+    width: 65%; /* 原宽度约为80%，现缩短为65% */
+    background-color: var(--accent-lighter);
+    border: 1px solid var(--border-color);
     color: var(--text-primary);
-    border-bottom: 1px solid var(--border-color);
+    transition: width 0.3s ease;
 }
 
-/* 应用图标样式 */
+/* 输入框获得焦点时略微加宽 */
+#chat-input:focus {
+    width: 70%;
+}
+
+/* 2. 壁纸背景透明化 */
+#wallpaper-preview {
+    background-color: transparent !important;
+    border: 2px dashed var(--accent-color);
+}
+
+/* 3. 简化应用图标样式 */
 .app-icon {
     background-color: var(--accent-lighter);
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 8px var(--shadow-color);
+    box-shadow: 0 2px 4px var(--shadow-color); /* 保留基础阴影 */
+    /* 移除渐变和复杂效果 */
+    transition: transform 0.2s ease;
 }
 
 .app-icon:hover {
+    transform: scale(1.05);
     background-color: var(--accent-light);
 }
 
-/* 按钮样式 */
-button, .form-button {
-    background-color: var(--button-primary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px var(--shadow-color);
-}
-
-button:hover, .form-button:hover {
-    background-color: var(--button-hover);
-}
-
-button:active, .form-button:active {
-    background-color: var(--button-active);
-}
-
-/* 消息气泡样式 */
+/* 3. 简化消息气泡样式 */
 .message-bubble .content {
     position: relative;
     padding: 12px;
     border-radius: 18px;
-    box-shadow: 0 4px 6px rgba(155, 202, 255, 0.2), 
-                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 4px var(--shadow-color); /* 保留基础阴影 */
     font-family: '天使喵喵酱', sans-serif;
+    /* 移除渐变背景 */
+    background-color: var(--bubble-user);
+    border: 1px solid var(--border-color);
 }
 
-/* 用户消息气泡 */
 .message-bubble.user .content {
-    background: radial-gradient(
-        ellipse at 100% 20%,
-        var(--accent-light) 0%,
-        var(--accent-lighter) 60%,
-        var(--secondary-bg) 100%
-    );
+    background-color: var(--bubble-user);
     color: var(--bubble-text-user);
-    border: 1px solid var(--border-color);
 }
 
-/* AI消息气泡 */
 .message-bubble.ai .content {
-    background: linear-gradient(
-        135deg,
-        var(--secondary-bg) 0%,
-        var(--primary-bg) 100%
-    );
+    background-color: var(--bubble-ai);
     color: var(--bubble-text-ai);
-    border: 1px solid var(--border-color);
 }
 
 /* 输入区域样式 */
