@@ -1,4 +1,4 @@
-/* 冰川（沁柠茶）主题 - 远程主题CSS - 修改版 */
+/* 冰川（沁柠茶）主题 - 透明磨砂版 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -24,7 +24,6 @@
     --header-text: #3A6BA5;
     --notification-bg: #E3F2FF;
     --notification-text: #3A6BA5;
-    --chat-bg-transparent: rgba(242, 248, 255, 0.85); /* 半透明聊天背景 */
 }
 
 /* 基础样式 */
@@ -51,18 +50,23 @@ body {
     position: relative;
 }
 
-/* 状态栏 */
+/* 状态栏 - 高度减小 */
 #status-bar {
     background-color: var(--header-bg);
     color: var(--header-text);
     border-bottom: 1px solid var(--border-color);
-    padding-top: 3px; /* 减小顶部间距 */
+    padding: 3px 0; /* 减小高度 */
+    height: 22px; /* 固定高度 */
 }
 
-/* 刘海样式 - 高度减小 */
+#status-bar-time {
+    font-size: 13px; /* 适当减小字体 */
+}
+
+/* 刘海样式 - 配合状态栏调整 */
 .notch {
     width: 120px;
-    height: 10px; /* 原高度减小 */
+    height: 16px; /* 高度减小 */
     background-color: var(--secondary-bg);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -76,50 +80,40 @@ body {
 .notch::before {
     content: '';
     position: absolute;
-    top: -5px;
+    top: -4px;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 5px;
+    height: 4px;
     background-color: var(--primary-bg);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
-/* 通知栏 */
-#notification-bar {
-    background-color: var(--notification-bg);
-    color: var(--notification-text);
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* 应用图标 - 图片和文字分离处理 */
+/* 应用图标 - 透明容器 */
 .app-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    background-color: var(--highlight-color);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    padding: 10px 5px;
+    background-color: transparent; /* 容器透明 */
+    border: none; /* 去除边框 */
+    padding: 5px;
     width: 60px;
     height: 80px;
     margin: 5px;
-    position: relative;
 }
 
 .app-icon .icon-bg {
     width: 50px;
     height: 50px;
-    background-color: var(--accent-color);
+    background-color: rgba(155, 202, 255, 0.3); /* 半透明背景 */
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
-    overflow: hidden;
+    margin-bottom: 5px;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(190, 221, 255, 0.5);
 }
 
 .app-icon .icon-bg img {
@@ -136,31 +130,30 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: 5px;
 }
 
-/* 聊天界面 - 改为透明 */
+/* 聊天界面 - 全透明磨砂 */
 #chat-messages {
-    background-color: var(--chat-bg-transparent);
-    backdrop-filter: blur(3px);
+    background-color: rgba(242, 248, 255, 0.3); /* 极低透明度 */
+    backdrop-filter: blur(8px); /* 磨砂效果 */
 }
 
+/* 消息气泡保持原有样式但增强磨砂感 */
 .message-bubble .content {
     position: relative;
     padding: 12px;
     border-radius: 25px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 
-                inset 0 4px 15px rgba(255, 255, 255, 0.5), 
-                inset 0 4px 7px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.7); /* 气泡半透明 */
 }
 
 .message-bubble.ai .content {
     background: radial-gradient(
         ellipse at 0% 20%,
-        var(--highlight-color) 0%,
-        var(--accent-color) 40%,
-        rgba(255, 255, 255, 0.4) 100%
+        rgba(227, 242, 255, 0.7) 0%,
+        rgba(155, 202, 255, 0.5) 40%,
+        rgba(255, 255, 255, 0.3) 100%
     );
     color: var(--text-primary);
     border: 1px solid var(--border-color);
@@ -169,28 +162,39 @@ body {
 .message-bubble.user .content {
     background: radial-gradient(
         ellipse at 100% 20%,
-        var(--accent-color) 0%,
-        var(--highlight-color) 40%,
-        rgba(255, 255, 255, 0.4) 100%
+        rgba(155, 202, 255, 0.7) 0%,
+        rgba(227, 242, 255, 0.5) 40%,
+        rgba(255, 255, 255, 0.3) 100%
     );
     color: var(--button-text);
     border: 1px solid var(--border-color);
 }
 
-/* 输入区域 */
+/* 输入区域 - 透明磨砂 */
 #chat-input-area {
-    background-color: var(--chat-bg-transparent);
+    background-color: rgba(242, 248, 255, 0.5);
     border-top: 1px solid var(--border-color);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(8px);
 }
 
-#chat-input {
-    background-color: var(--input-bg);
-    border: 1px solid var(--input-border);
-    color: var(--text-primary);
+/* 弹窗保持原有背景 */
+.modal-content {
+    background-color: var(--secondary-bg) !important; /* 保持不透明 */
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* 按钮样式 */
+/* 其他所有元素保持原样 */
+#home-screen {
+    background-color: var(--primary-bg);
+}
+
+#notification-bar {
+    background-color: var(--notification-bg);
+    color: var(--notification-text);
+    border-bottom: 1px solid var(--border-color);
+}
+
 button, .form-button {
     background-color: var(--button-bg);
     color: var(--button-text);
@@ -203,20 +207,14 @@ button:hover, .form-button:hover {
     background-color: var(--accent-color);
 }
 
-/* 表单元素 */
-.form-group input, .form-group textarea, .form-group select {
+.form-group input, 
+.form-group textarea, 
+.form-group select {
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
     color: var(--text-primary);
 }
 
-/* 模态框 */
-.modal-content {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-}
-
-/* 音乐播放器 */
 #music-player-overlay {
     background-color: rgba(227, 242, 255, 0.9);
 }
@@ -227,12 +225,6 @@ button:hover, .form-button:hover {
     color: var(--text-primary);
 }
 
-/* 时钟样式 */
-#clock-container {
-    color: var(--text-primary);
-}
-
-/* 电池图标 */
 .battery-icon {
     border: 1px solid var(--border-color);
 }
@@ -241,7 +233,6 @@ button:hover, .form-button:hover {
     background-color: var(--accent-color);
 }
 
-/* 滚动条 */
 ::-webkit-scrollbar-thumb {
     background-color: var(--border-color);
 }
