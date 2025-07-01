@@ -1,125 +1,139 @@
-/* 冰川（沁柠茶）主题 - 远程主题CSS */
+/* 冰川（沁柠茶）主题 - 仅颜色修改 */
 :root {
-    /* 主色调 */
-    --primary-color: #9BCAFF;       /* 晴空蓝 - 主要按钮、强调色 */
-    --primary-light: #E3F2FF;      /* 浅冰蓝 - 背景、高亮 */
-    --primary-lighter: #F2F8FF;    /* 奶霜白 - 卡片背景 */
-    --primary-dark: #BEDDFF;       /* 柔云蓝 - 边框、次级元素 */
-    
-    /* 文本颜色 */
-    --text-primary: #2C3E50;       /* 深色文本 */
-    --text-secondary: #5D6D7E;     /* 次级文本 */
-    --text-on-primary: #2C3E50;    /* 主色上的文本 */
-    
-    /* 背景色 */
-    --bg-primary: #F2F8FF;         /* 主背景 - 奶霜白 */
-    --bg-secondary: #E3F2FF;       /* 次级背景 - 浅冰蓝 */
-    --bg-card: #FFFFFF;            /* 卡片背景 */
-    
-    /* 边框 */
-    --border-color: #BEDDFF;       /* 柔云蓝 */
-    --border-radius: 12px;
-    
-    /* 聊天气泡 */
-    --bubble-them: #E3F2FF;        /* 对方气泡 - 浅冰蓝 */
-    --bubble-me: #9BCAFF;          /* 我的气泡 - 晴空蓝 */
-    --bubble-text-them: #2C3E50;   /* 对方气泡文本 */
-    --bubble-text-me: #2C3E50;     /* 我的气泡文本 */
+  /* 主色调 */
+  --primary-color: #9BCAFF; /* 晴空蓝 - 主要按钮和强调色 */
+  --primary-dark-color: #7BB5F5; /* 主色调深色 */
+  --primary-light-color: #BEDDFF; /* 柔云蓝 - 主色调浅色 */
+  
+  /* 背景色 */
+  --bg-primary: #F2F8FF; /* 奶霜白 - 主背景 */
+  --bg-secondary: #E3F2FF; /* 浅冰蓝 - 次要背景 */
+  --bg-tertiary: #FFFFFF; /* 白色 - 三级背景 */
+  
+  /* 文本颜色 */
+  --text-primary: #333333; /* 主要文本 */
+  --text-secondary: #555555; /* 次要文本 */
+  --text-tertiary: #777777; /* 三级文本 */
+  --text-on-primary: #FFFFFF; /* 主色调上的文本 */
+  
+  /* 边框颜色 */
+  --border-color: #D1E5FF; /* 浅蓝色边框 */
+  --border-light-color: #E8F2FF; /* 更浅的蓝色边框 */
+  
+  /* 状态栏 */
+  --status-bar-bg: #E3F2FF; /* 浅冰蓝 */
+  
+  /* 头部栏 */
+  --header-bg: #BEDDFF; /* 柔云蓝 */
+  --header-text: #333333;
+  
+  /* 输入框 */
+  --input-bg: #FFFFFF;
+  --input-border: #D1E5FF;
+  --input-text: #333333;
+  --input-placeholder: #AAAAAA;
+  
+  /* 按钮 */
+  --button-bg: #9BCAFF; /* 晴空蓝 */
+  --button-text: #FFFFFF;
+  --button-hover-bg: #8ABDF0;
+  --button-secondary-bg: #E3F2FF; /* 浅冰蓝 */
+  --button-secondary-text: #333333;
+  --button-secondary-hover-bg: #D1E5FF;
+  
+  /* 列表项 */
+  --list-item-bg: #FFFFFF;
+  --list-item-hover-bg: #E3F2FF; /* 浅冰蓝 */
+  --list-item-active-bg: #BEDDFF; /* 柔云蓝 */
+  --list-item-border: #E8F2FF;
+  
+  /* 模态框 */
+  --modal-bg: #F2F8FF; /* 奶霜白 */
+  --modal-header-bg: #BEDDFF; /* 柔云蓝 */
+  --modal-border: #D1E5FF;
+  
+  /* 滚动条 */
+  --scrollbar-thumb: #BEDDFF; /* 柔云蓝 */
+  --scrollbar-track: #F2F8FF; /* 奶霜白 */
 }
 
-/* 状态栏 */
+/* 应用颜色到主要元素 */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#phone-frame {
+  background-color: var(--bg-secondary);
+}
+
 #status-bar {
-    background-color: var(--primary-color);
-    color: var(--text-on-primary);
+  background-color: var(--status-bar-bg);
 }
 
-.battery-icon {
-    border-color: var(--text-on-primary);
-}
-
-.battery-level {
-    background-color: var(--text-on-primary);
-}
-
-/* 应用图标 */
-.app-icon .icon-bg {
-    background-color: var(--primary-light);
-}
-
-/* 按钮样式 */
-.action-button, .form-button {
-    background-color: var(--primary-color);
-    color: var(--text-on-primary);
-}
-
-.action-button:hover, .form-button:hover {
-    background-color: var(--primary-dark);
-}
-
-/* 输入框 */
-input, textarea, select {
-    background-color: var(--bg-card);
-    border-color: var(--border-color);
-}
-
-/* 聊天界面 */
-#chat-messages {
-    background-color: var(--bg-primary);
-}
-
-.message-them .message-content {
-    background-color: var(--bubble-them);
-    color: var(--bubble-text-them);
-}
-
-.message-me .message-content {
-    background-color: var(--bubble-me);
-    color: var(--bubble-text-me);
-}
-
-/* 模态框 */
-.modal-content {
-    background-color: var(--bg-primary);
-}
-
-/* 头部 */
 .header {
-    background-color: var(--primary-color);
-    color: var(--text-on-primary);
+  background-color: var(--header-bg);
+  color: var(--header-text);
 }
 
-/* 列表项 */
-.list-container > div {
-    background-color: var(--bg-card);
-    border-color: var(--border-color);
+.app-icon {
+  background-color: var(--bg-tertiary);
 }
 
-/* 音乐播放器 */
-.music-player-window {
-    background-color: var(--bg-primary);
+.list-container div {
+  background-color: var(--list-item-bg);
+  border-color: var(--list-item-border);
 }
 
-/* 表单组 */
-.form-group label {
-    color: var(--text-primary);
+.list-container div:hover {
+  background-color: var(--list-item-hover-bg);
 }
 
-/* 切换开关 */
-.toggle-switch .slider {
-    background-color: var(--primary-dark);
+.list-container div:active {
+  background-color: var(--list-item-active-bg);
 }
 
-.toggle-switch input:checked + .slider {
-    background-color: var(--primary-color);
+.form-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
 }
 
-/* 壁纸预览 */
-#wallpaper-preview {
-    border-color: var(--border-color);
+.form-button:hover {
+  background-color: var(--button-hover-bg);
 }
 
-/* 通知栏 */
-#notification-bar {
-    background-color: var(--primary-light);
-    color: var(--text-primary);
+.form-button-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+
+.form-button-secondary:hover {
+  background-color: var(--button-secondary-hover-bg);
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  border-color: var(--modal-border);
+}
+
+.modal-header {
+  background-color: var(--modal-header-bg);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark-color);
 }
