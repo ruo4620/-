@@ -13,24 +13,35 @@
     ]
     }
 :root {
+    /* 主色调（调整为更柔和的蓝色） */
     --primary-color: #4a89dc;
     --secondary-color: #5d9cec;
     --accent-color: #e6f0fa;
+    
+    /* 文字颜色 */
     --text-primary: #2c3e50;
     --text-secondary: #7f8c8d;
-    --background-primary: #f5f7fa;
+    
+    /* 背景颜色（改为纯白） */
+    --background-primary: #ffffff;
     --background-secondary: #ffffff;
     --border-color: #e0e6ed;
-    --message-bg-sent: #e6f0fa;
+    
+    /* 聊天气泡 */
+    --message-bg-sent: #D4E4EF;  /* 月白色 */
     --message-bg-received: #ffffff;
     --message-text-sent: #2c3e50;
     --message-text-received: #2c3e50;
-    --message-border-sent: #d0e0f0;
+    --message-border-sent: #C3D7DE;  /* 浅蓝色边框 */
     --message-border-received: #e0e6ed;
+    
+    /* 状态栏 & 头部 */
     --status-bar-bg: #4a89dc;
     --status-bar-text: #ffffff;
     --header-bg: #4a89dc;
     --header-text: #ffffff;
+    
+    /* 输入框 & 按钮 */
     --input-bg: #ffffff;
     --input-text: #2c3e50;
     --button-primary-bg: #4a89dc;
@@ -39,25 +50,44 @@
     --button-secondary-text: #4a89dc;
 }
 
-/* 其他元素样式 */
+/* 自定义字体 */
+@font-face {
+    font-family: '寒蝉半圆体';
+    src: url('http://sharkpan.xyz/f/rDgWS6/%E5%AF%92%E8%9D%89%E5%8D%8A%E5%9C%86%E4%BD%93v3.0.ttf');
+}
+
+body {
+    font-family: '寒蝉半圆体', sans-serif;
+    font-weight: normal;
+}
+
+/* 手机外框（湖水蓝 #8ABDD2） */
 #phone-frame {
     background-color: var(--background-primary);
+    border: 12px solid #8ABDD2;  /* 湖水蓝边框 */
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(138, 189, 210, 0.5);
 }
 
+/* 主页背景（改为纯白） */
 #home-screen {
-    background: linear-gradient(to bottom, var(--primary-color), var(--background-primary));
+    background: var(--background-primary);
 }
 
+/* 应用图标 */
 .app-icon .icon-bg {
     background-color: var(--secondary-color);
 }
 
+/* 聊天气泡 */
 .chat-message.sent {
     background-color: var(--message-bg-sent);
-    border-color: var(--message-border-sent);
+    border: 1px solid var(--message-border-sent);
+    border-radius: 12px;
 }
 
 .chat-message.received {
     background-color: var(--message-bg-received);
-    border-color: var(--message-border-received);
+    border: 1px solid var(--message-border-received);
+    border-radius: 12px;
 }
