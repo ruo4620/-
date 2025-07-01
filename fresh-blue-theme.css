@@ -1,4 +1,4 @@
-/* 冰川（沁柠茶）主题 - 远程主题CSS */
+/* 冰川（沁柠茶）主题 - 远程主题CSS - 修改版 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -24,6 +24,7 @@
     --header-text: #3A6BA5;
     --notification-bg: #E3F2FF;
     --notification-text: #3A6BA5;
+    --chat-bg-transparent: rgba(242, 248, 255, 0.85); /* 半透明聊天背景 */
 }
 
 /* 基础样式 */
@@ -47,6 +48,7 @@ body {
     background-color: var(--primary-bg);
     border-radius: 25px;
     overflow: hidden;
+    position: relative;
 }
 
 /* 状态栏 */
@@ -54,6 +56,34 @@ body {
     background-color: var(--header-bg);
     color: var(--header-text);
     border-bottom: 1px solid var(--border-color);
+    padding-top: 5px; /* 减小顶部间距 */
+}
+
+/* 刘海样式 - 高度减小 */
+.notch {
+    width: 120px;
+    height: 18px; /* 原高度减小 */
+    background-color: var(--secondary-bg);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.notch::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background-color: var(--primary-bg);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 /* 通知栏 */
@@ -63,21 +93,56 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* 应用图标 */
+/* 应用图标 - 图片和文字分离处理 */
 .app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     background-color: var(--highlight-color);
     border: 1px solid var(--border-color);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 10px 5px;
+    width: 60px;
+    height: 80px;
+    margin: 5px;
+    position: relative;
 }
 
 .app-icon .icon-bg {
+    width: 50px;
+    height: 50px;
     background-color: var(--accent-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    overflow: hidden;
 }
 
-/* 聊天界面 */
+.app-icon .icon-bg img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.app-icon .label {
+    font-size: 12px;
+    color: var(--text-primary);
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+/* 聊天界面 - 改为透明 */
 #chat-messages {
-    background-color: var(--primary-bg);
+    background-color: var(--chat-bg-transparent);
+    backdrop-filter: blur(3px);
 }
 
 .message-bubble .content {
@@ -87,6 +152,7 @@ body {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 
                 inset 0 4px 15px rgba(255, 255, 255, 0.5), 
                 inset 0 4px 7px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(2px);
 }
 
 .message-bubble.ai .content {
@@ -94,7 +160,7 @@ body {
         ellipse at 0% 20%,
         var(--highlight-color) 0%,
         var(--accent-color) 40%,
-        var(--primary-bg) 100%
+        rgba(255, 255, 255, 0.4) 100%
     );
     color: var(--text-primary);
     border: 1px solid var(--border-color);
@@ -105,7 +171,7 @@ body {
         ellipse at 100% 20%,
         var(--accent-color) 0%,
         var(--highlight-color) 40%,
-        var(--primary-bg) 100%
+        rgba(255, 255, 255, 0.4) 100%
     );
     color: var(--button-text);
     border: 1px solid var(--border-color);
@@ -113,8 +179,9 @@ body {
 
 /* 输入区域 */
 #chat-input-area {
-    background-color: var(--secondary-bg);
+    background-color: var(--chat-bg-transparent);
     border-top: 1px solid var(--border-color);
+    backdrop-filter: blur(3px);
 }
 
 #chat-input {
@@ -158,15 +225,6 @@ button:hover, .form-button:hover {
     background-color: var(--secondary-bg);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-}
-
-/* 特殊效果 */
-.notch {
-    background-color: var(--secondary-bg);
-}
-
-.notch::before {
-    background-color: var(--primary-bg);
 }
 
 /* 时钟样式 */
