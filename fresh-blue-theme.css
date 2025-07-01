@@ -1,4 +1,4 @@
-/* 冰川（沁柠茶）主题 - 远程主题CSS */
+/* 冰川（沁柠茶）主题 - 远程CSS文件 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -8,154 +8,176 @@
 
 :root {
     /* 基础尺寸 */
-    --screen-width: 100%;
-    --screen-height: auto;
-    --phone-frame-padding: 15px;
+    --screen-width: 290px;
+    --screen-height: 630px;
     
     /* 冰川色调配色 */
-    --primary-bg: #E3F2FF;       /* 浅冰蓝 */
-    --secondary-bg: #F2F8FF;     /* 奶霜白 */
-    --tertiary-bg: #BEDDFF;      /* 柔云蓝 */
+    --primary-bg: #F2F8FF;       /* 奶霜白 */
+    --secondary-bg: #FFFFFF;     /* 纯白 */
+    --border-color: #BEDDFF;     /* 柔云蓝 */
+    --text-primary: #4A6FA5;     /* 深蓝文本 */
+    --text-secondary: #7D9BC1;   /* 中蓝文本 */
     --accent-color: #9BCAFF;     /* 晴空蓝 */
-    --border-color: #C8E4FF;
+    --highlight-color: #E3F2FF;  /* 浅冰蓝 */
     
-    /* 文字颜色 */
-    --text-primary: #4A6FA5;
-    --text-secondary: #6D8CB7;
-    --text-accent: #3A5F8F;
+    /* 消息气泡 */
+    --user-bubble: #E3F2FF;
+    --ai-bubble: #FFFFFF;
+    --user-text: #3A5A80;
+    --ai-text: #4A4A4A;
     
-    /* 特殊元素 */
-    --notch-color: #BEDDFF;
-    --battery-color: #4A6FA5;
-    --unread-badge: #FF6B6B;
-    
-    /* 圆角设置 */
-    --frame-radius: 30px;
-    --element-radius: 15px;
-    --bubble-radius: 20px;
+    /* 按钮 */
+    --button-bg: #9BCAFF;
+    --button-text: #FFFFFF;
+    --button-hover: #BEDDFF;
 }
 
 /* 基础样式重置 */
 * {
-    box-sizing: border-box;
     font-family: '天使喵喵酱', -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: border-box;
 }
 
-/* 手机框架样式 */
+/* 手机框架 */
 #phone-frame {
-    width: var(--screen-width);
-    max-width: 320px;
-    height: var(--screen-height);
-    min-height: 630px;
-    margin: 0 auto;
-    padding: var(--phone-frame-padding);
-    background-color: var(--secondary-bg);
-    border-radius: var(--frame-radius);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
-                inset 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    background: linear-gradient(135deg, #E3F2FF 0%, #F2F8FF 100%);
+    border-radius: 30px;
+    box-shadow: 0 20px 20px rgba(0,0,0,0.15), 
+                inset 0 2px 4px rgba(255,255,255,0.3);
     position: relative;
-    overflow: hidden;
-    border: 12px solid var(--secondary-bg);
+    border: 2px solid var(--border-color);
 }
 
-/* 状态栏样式 */
+/* 状态栏 */
 #status-bar {
-    background-color: var(--tertiary-bg);
+    background: rgba(242, 248, 255, 0.7);
     color: var(--text-primary);
-    padding: 8px 15px;
-    border-radius: var(--element-radius) var(--element-radius) 0 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.notch {
-    background-color: var(--notch-color);
-}
-
-/* 主屏幕样式 */
+/* 主屏幕 */
 #home-screen {
-    background-color: var(--primary-bg);
-    background-image: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+    background: linear-gradient(to bottom, #F2F8FF 0%, #E3F2FF 100%);
 }
 
-/* 应用图标样式 */
-.app-icon {
-    background-color: var(--secondary-bg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--border-color);
-}
-
-/* 聊天界面样式 */
-#chat-interface-screen {
-    background-color: var(--secondary-bg);
-}
-
-/* 消息气泡样式 */
-.message-bubble .content {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
+/* 时钟样式 */
+#main-time {
     color: var(--text-primary);
-    border-radius: var(--bubble-radius);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-shadow: 0 2px 4px rgba(155, 202, 255, 0.3);
+}
+
+/* 应用图标 */
+.app-icon {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(155, 202, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.app-icon:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(155, 202, 255, 0.3);
+}
+
+/* 聊天消息气泡 */
+.message-bubble .content {
+    position: relative;
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 
+                inset 0 2px 10px rgba(255,255,255,0.5);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.message-bubble.user .content {
+    background: radial-gradient(
+        ellipse at 100% 20%,
+        var(--user-bubble) 0%,
+        rgba(255, 255, 255, 0.8) 70%,
+        rgba(255, 255, 255, 0.6) 100%
+    );
+    color: var(--user-text);
+    border: 1px solid var(--border-color);
 }
 
 .message-bubble.ai .content {
-    background-color: var(--tertiary-bg);
-    color: var(--text-accent);
-}
-
-/* 输入区域样式 */
-#chat-input-area {
-    background-color: var(--secondary-bg);
-    border-top: 1px solid var(--border-color);
-}
-
-#chat-input {
-    background-color: var(--secondary-bg);
+    background: var(--ai-bubble);
+    color: var(--ai-text);
     border: 1px solid var(--border-color);
-    color: var(--text-primary);
 }
 
 /* 按钮样式 */
-button, .action-button {
-    background-color: var(--accent-color);
-    color: white;
+.button, .form-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: none;
-    border-radius: var(--element-radius);
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(155, 202, 255, 0.3);
 }
 
-/* 表单元素样式 */
-.form-container {
-    background-color: var(--secondary-bg);
+.button:hover, .form-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(155, 202, 255, 0.4);
 }
 
-.form-group input, 
-.form-group textarea, 
-.form-group select {
-    background-color: var(--secondary-bg);
+/* 输入框样式 */
+input, textarea, select {
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 8px 12px;
     color: var(--text-primary);
 }
 
-/* 模态框样式 */
-.modal-content {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+    background-color: white;
 }
 
-/* 特殊动画效果 */
-@keyframes gentlePulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+/* 音乐播放器样式 */
+#music-player-overlay {
+    background: rgba(242, 248, 255, 0.9);
+    border: 2px solid var(--border-color);
 }
 
-#typing-indicator {
-    animation: gentlePulse 2s infinite;
-    color: var(--text-secondary);
+/* 动画效果 */
+@keyframes gentleSway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1.5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-1.5deg); }
+}
+
+/* 应用摇摆动画到装饰元素 */
+.decorative-element {
+    animation: gentleSway 8s ease-in-out infinite;
+}
+
+/* 主题切换器样式 */
+.theme-selector label {
+    background: rgba(155, 202, 255, 0.2);
+    border-radius: 12px;
+    padding: 6px 12px;
+    margin: 4px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.theme-selector label:hover {
+    background: rgba(155, 202, 255, 0.4);
 }
 
 /* 响应式调整 */
-@media (max-width: 400px) {
-    #phone-frame {
-        --phone-frame-padding: 8px;
-        --frame-radius: 25px;
+@media (max-width: 320px) {
+    :root {
+        --screen-width: 100%;
+        --screen-height: auto;
     }
 }
