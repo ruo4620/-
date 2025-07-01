@@ -1,119 +1,148 @@
+/* 冰川（沁柠茶）主题 - 远程主题CSS */
 :root {
-    /* 基础色系 */
-    --glacier: #CCCCCC;
-    --zero-degree: #D9D9D9;
-    --translucent: #E8E8E6;
-    --source: #F2F2F2;
-    
-    /* 应用配色 */
-    --primary-bg: var(--source);
-    --secondary-bg: var(--translucent);
-    --border-color: var(--glacier);
-    --highlight-color: var(--zero-degree);
+    /* 基础色调 */
+    --primary-color: #9BCAFF;       /* 晴空蓝 - 主色调 */
+    --secondary-color: #BEDDFF;     /* 柔云蓝 - 次要色调 */
+    --background-color: #F2F8FF;    /* 奶霜白 - 背景色 */
+    --accent-color: #E3F2FF;        /* 浅冰蓝 - 强调色 */
     
     /* 文字颜色 */
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --text-tertiary: #999999;
+    --text-primary: #2C3E50;        /* 深蓝灰 - 主要文字 */
+    --text-secondary: #5D6D7E;      /* 中灰蓝 - 次要文字 */
+    --text-on-primary: #FFFFFF;     /* 白色 - 主色上的文字 */
+    
+    /* 聊天气泡 */
+    --bubble-user-bg: var(--primary-color);      /* 用户气泡背景 */
+    --bubble-user-text: var(--text-primary);     /* 用户气泡文字 */
+    --bubble-ai-bg: var(--accent-color);         /* AI气泡背景 */
+    --bubble-ai-text: var(--text-primary);       /* AI气泡文字 */
+    --bubble-border-radius: 18px;                /* 气泡圆角 */
+    
+    /* 界面元素 */
+    --header-bg: var(--primary-color);           /* 头部背景 */
+    --header-text: var(--text-on-primary);       /* 头部文字 */
+    --input-bg: #FFFFFF;                         /* 输入框背景 */
+    --input-border: var(--secondary-color);      /* 输入框边框 */
+    --button-bg: var(--primary-color);           /* 按钮背景 */
+    --button-text: var(--text-on-primary);       /* 按钮文字 */
+    --button-hover: #8AB5E6;                     /* 按钮悬停 */
     
     /* 特殊元素 */
-    --active-item: #E0F7FA;
-    --notification-bg: rgba(200, 230, 255, 0.9);
-    
-    /* 按钮 */
-    --button-bg: var(--zero-degree);
-    --button-text: var(--text-primary);
-    --button-hover: var(--glacier);
-    
-    /* 聊天泡泡 */
-    --chat-bubble-user: #E3F2FD;
-    --chat-bubble-ai: #FFFFFF;
-    --chat-bubble-border: var(--border-color);
+    --link-color: #4A90E2;                       /* 链接颜色 */
+    --unread-badge: #FF6B6B;                     /* 未读标记 */
+    --typing-indicator: var(--secondary-color);  /* 正在输入指示器 */
 }
 
-/* 整体布局样式 */
+/* 应用整体样式 */
 body {
-    background-color: var(--primary-bg);
+    background-color: var(--background-color);
     color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-#phone-frame {
-    background: linear-gradient(135deg, var(--translucent), var(--source));
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+/* 头部样式 */
+.header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#phone-screen {
-    background-color: var(--primary-bg);
+/* 聊天气泡样式 */
+.message.user {
+    background-color: var(--bubble-user-bg);
+    color: var(--bubble-user-text);
+    border-bottom-right-radius: 4px;
 }
 
-/* 状态栏 */
-#status-bar {
-    background-color: rgba(242, 242, 242, 0.9);
+.message.ai {
+    background-color: var(--bubble-ai-bg);
+    color: var(--bubble-ai-text);
+    border-bottom-left-radius: 4px;
+}
+
+.message {
+    border-radius: var(--bubble-border-radius);
+    padding: 12px 16px;
+    margin: 8px 0;
+    max-width: 80%;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 输入区域样式 */
+#chat-input-area {
+    background-color: var(--accent-color);
+    border-top: 1px solid var(--secondary-color);
+}
+
+#chat-input {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
     color: var(--text-primary);
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* 应用图标 */
-.app-icon {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.app-icon:hover {
-    background-color: var(--highlight-color);
 }
 
 /* 按钮样式 */
 .button, .form-button {
     background-color: var(--button-bg);
     color: var(--button-text);
-    border: 1px solid var(--border-color);
-    transition: all 0.2s ease;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.2s;
 }
 
 .button:hover, .form-button:hover {
     background-color: var(--button-hover);
 }
 
-/* 聊天界面 */
-#chat-messages {
-    background-color: var(--primary-bg);
+/* 状态栏样式 */
+#status-bar {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
 }
 
-.chat-bubble.user {
-    background-color: var(--chat-bubble-user);
-    border: 1px solid var(--chat-bubble-border);
+/* 应用图标样式 */
+.app-icon {
+    background-color: var(--accent-color);
+    border-radius: 16px;
+    transition: transform 0.2s;
 }
 
-.chat-bubble.ai {
-    background-color: var(--chat-bubble-ai);
-    border: 1px solid var(--chat-bubble-border);
+.app-icon:hover {
+    transform: scale(1.05);
 }
 
-/* 输入区域 */
-#chat-input {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
+/* 通知栏样式 */
+#notification-bar {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
 }
 
-/* 模态框 */
+/* 模态框样式 */
 .modal-content {
-    background-color: var(--primary-bg);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
 }
 
-/* 音乐播放器 */
+/* 音乐播放器样式 */
 #music-player-overlay {
-    background-color: rgba(242, 242, 242, 0.95);
+    background-color: rgba(155, 202, 255, 0.9);
 }
 
-/* 特殊效果 */
-.notification {
-    background-color: var(--notification-bg);
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.active-item {
-    background-color: var(--active-item);
+::-webkit-scrollbar-track {
+    background: var(--accent-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8AB5E6;
 }
