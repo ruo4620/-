@@ -1,4 +1,4 @@
-/* 冰川沁柠茶主题 - 修改版 */
+/* 冰川沁柠茶主题 - 最终修改版 */
 :root {
     /* 基础尺寸 */
     --screen-width: 290px;
@@ -44,59 +44,111 @@ body {
     background-color: var(--primary-bg);
 }
 
-/* 手机框架样式 - 保持不变 */
+/* 新版手机外框样式 */
 #phone-frame {
-    padding: 8px;
-    background: linear-gradient(145deg, #FFFFFF 0%, #E3F2FF 100%);
-    border-radius: 30px;
-    box-shadow: 0 20px 20px rgba(155, 202, 255, 0.25), 
-                inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    padding: 12px;
+    background: linear-gradient(145deg, #E3F2FF 0%, #BEDDFF 100%);
+    border-radius: 40px;
+    box-shadow: 0 25px 40px rgba(155, 202, 255, 0.4),
+                inset 0 -3px 10px rgba(0,0,0,0.1),
+                inset 0 3px 10px rgba(255,255,255,0.6);
     position: relative;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--accent-color);
 }
 
-/* 1. 输入框缩短 */
+/* 手机屏幕样式 */
+#phone-screen {
+    border-radius: 32px;
+    overflow: hidden;
+    background-color: var(--primary-bg);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+    height: var(--screen-height);
+    width: var(--screen-width);
+}
+
+/* 刘海样式调整 */
+.notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(to bottom, #BEDDFF 0%, #9BCAFF 100%);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+}
+
+/* 圆形应用图标 */
+.app-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 圆形 */
+    background-color: var(--accent-lighter);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.app-icon .icon-bg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-icon .icon-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app-icon .label {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+.app-icon:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: var(--accent-light);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+/* 输入框缩短 */
 #chat-input {
-    width: 65%; /* 原宽度约为80%，现缩短为65% */
+    width: 65%;
     background-color: var(--accent-lighter);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
     transition: width 0.3s ease;
 }
 
-/* 输入框获得焦点时略微加宽 */
 #chat-input:focus {
     width: 70%;
 }
 
-/* 2. 壁纸背景透明化 */
+/* 透明壁纸背景 */
 #wallpaper-preview {
     background-color: transparent !important;
     border: 2px dashed var(--accent-color);
 }
 
-/* 3. 简化应用图标样式 */
-.app-icon {
-    background-color: var(--accent-lighter);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px var(--shadow-color); /* 保留基础阴影 */
-    /* 移除渐变和复杂效果 */
-    transition: transform 0.2s ease;
-}
-
-.app-icon:hover {
-    transform: scale(1.05);
-    background-color: var(--accent-light);
-}
-
-/* 3. 简化消息气泡样式 */
+/* 简化消息气泡 */
 .message-bubble .content {
     position: relative;
     padding: 12px;
     border-radius: 18px;
-    box-shadow: 0 2px 4px var(--shadow-color); /* 保留基础阴影 */
+    box-shadow: 0 2px 4px var(--shadow-color);
     font-family: '天使喵喵酱', sans-serif;
-    /* 移除渐变背景 */
     background-color: var(--bubble-user);
     border: 1px solid var(--border-color);
 }
@@ -110,6 +162,7 @@ body {
     background-color: var(--bubble-ai);
     color: var(--bubble-text-ai);
 }
+
 
 /* 输入区域样式 */
 #chat-input-area {
