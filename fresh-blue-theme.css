@@ -1,4 +1,4 @@
-/* 冰川（沁柠茶）主题 - 透明磨砂版 */
+/* 冰川（沁柠茶）主题 -  */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -9,8 +9,8 @@
 :root {
     --screen-width: 290px;
     --screen-height: 630px;
-    --primary-bg: #F2F8FF; /* 奶霜白 - 用于交互页面 */
-    --secondary-bg: #FFFFFF; /* 用于卡片和模态框 */
+    --primary-bg: #F2F8FF; /* 奶霜白 */
+    --secondary-bg: #FFFFFF;
     --border-color: #BEDDFF; /* 柔云蓝 */
     --text-primary: #5E8EC8;
     --text-secondary: #8A8A8A;
@@ -20,10 +20,11 @@
     --button-text: #3A6BA5;
     --input-bg: #FFFFFF;
     --input-border: #BEDDFF;
-    --header-bg: rgba(227, 242, 255, 0.9); /* 半透明状态栏 */
+    --header-bg: #E3F2FF;
     --header-text: #3A6BA5;
-    --notification-bg: rgba(227, 242, 255, 0.9);
+    --notification-bg: #E3F2FF;
     --notification-text: #3A6BA5;
+    --frosted-opacity: 0.92; /* 磨砂效果透明度 */
 }
 
 /* 基础样式 */
@@ -55,19 +56,18 @@ body {
     background-color: var(--header-bg);
     color: var(--header-text);
     border-bottom: 1px solid var(--border-color);
-    padding: 3px 0; /* 减小高度 */
-    height: 22px; /* 固定高度 */
-    backdrop-filter: blur(5px); /* 磨砂效果 */
+    height: 24px; /* 减小高度 */
+    padding: 2px 0;
 }
 
 #status-bar-time {
-    font-size: 13px; /* 略微减小字体 */
+    line-height: 20px; /* 调整行高 */
 }
 
-/* 刘海样式 - 配合减小高度 */
+/* 刘海样式 - 配合减小的高度 */
 .notch {
     width: 120px;
-    height: 15px; /* 高度减小 */
+    height: 16px; /* 减小高度 */
     background-color: var(--secondary-bg);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -96,7 +96,8 @@ body {
     background-color: var(--notification-bg);
     color: var(--notification-text);
     border-bottom: 1px solid var(--border-color);
-    backdrop-filter: blur(5px); /* 磨砂效果 */
+    backdrop-filter: blur(5px);
+    opacity: var(--frosted-opacity);
 }
 
 /* 应用图标 - 全透明容器 */
@@ -106,7 +107,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     background-color: transparent; /* 容器全透明 */
-    border: none; /* 移除边框 */
+    border: none;
     border-radius: 15px;
     padding: 8px 5px;
     width: 60px;
@@ -118,22 +119,20 @@ body {
 .app-icon .icon-bg {
     width: 50px;
     height: 50px;
-    background-color: rgba(155, 202, 255, 0.3); /* 轻微透明 */
+    background-color: var(--accent-color);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 6px;
     overflow: hidden;
-    backdrop-filter: blur(2px); /* 轻微磨砂 */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 添加投影增强可视性 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .app-icon .icon-bg img {
     width: 80%;
     height: 80%;
     object-fit: contain;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1)); /* 图标投影 */
 }
 
 .app-icon .label {
@@ -144,62 +143,82 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7); /* 文字增强可读性 */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
-/* 聊天界面 - 全透明+磨砂 */
+/* 聊天界面 - 全透明带磨砂效果 */
 #chat-messages {
-    background-color: rgba(242, 248, 255, 0.3); /* 非常透明 */
-    backdrop-filter: blur(8px); /* 强磨砂效果 */
+    background-color: transparent;
+    backdrop-filter: blur(8px);
 }
 
+/* 消息气泡保持原样 */
 .message-bubble .content {
     position: relative;
     padding: 12px;
     border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 
-                inset 0 2px 8px rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(5px); /* 气泡磨砂 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 
+                inset 0 4px 15px rgba(255, 255, 255, 0.5), 
+                inset 0 4px 7px rgba(0, 0, 0, 0.05);
 }
 
 .message-bubble.ai .content {
-    background: rgba(190, 221, 255, 0.5); /* 半透明 */
+    background: radial-gradient(
+        ellipse at 0% 20%,
+        var(--highlight-color) 0%,
+        var(--accent-color) 40%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
     color: var(--text-primary);
-    border: 1px solid rgba(155, 202, 255, 0.5);
+    border: 1px solid var(--border-color);
 }
 
 .message-bubble.user .content {
-    background: rgba(155, 202, 255, 0.5); /* 半透明 */
+    background: radial-gradient(
+        ellipse at 100% 20%,
+        var(--accent-color) 0%,
+        var(--highlight-color) 40%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
     color: var(--button-text);
-    border: 1px solid rgba(190, 221, 255, 0.5);
+    border: 1px solid var(--border-color);
 }
 
-/* 输入区域 - 透明磨砂 */
+/* 输入区域 - 带磨砂效果 */
 #chat-input-area {
-    background-color: rgba(242, 248, 255, 0.4);
-    border-top: 1px solid rgba(190, 221, 255, 0.5);
-    backdrop-filter: blur(10px); /* 强磨砂 */
+    background-color: rgba(242, 248, 255, 0.7);
+    border-top: 1px solid var(--border-color);
+    backdrop-filter: blur(8px);
 }
 
-#chat-input {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid var(--input-border);
-    color: var(--text-primary);
-    backdrop-filter: blur(2px);
-}
-
-/* 其他交互页面保持原有背景 */
+/* 所有交互页面保留背景 */
 #world-book-screen,
-#preset-list-screen,
+#world-book-editor-screen,
 #api-settings-screen,
-#wallpaper-screen,
 #preset-editor-screen,
+#preset-list-screen,
 #chat-list-screen,
-.modal-content {
-    background-color: var(--primary-bg); /* 使用主背景色 */
+#wallpaper-screen,
+.modal-content,
+#music-player-overlay,
+#music-playlist-panel,
+#sticker-panel,
+#transfer-modal {
+    background-color: var(--secondary-bg);
+    opacity: var(--frosted-opacity);
 }
 
-/* 按钮样式保持不变 */
+/* 语音弹窗特殊处理 */
+#voice-message-panel { /* 假设语音弹窗有这个ID */
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+}
+
+/* 按钮样式 */
 button, .form-button {
     background-color: var(--button-bg);
     color: var(--button-text);
@@ -212,28 +231,26 @@ button:hover, .form-button:hover {
     background-color: var(--accent-color);
 }
 
-/* 时钟容器 */
+/* 时钟样式 */
 #clock-container {
-    background-color: rgba(242, 248, 255, 0.5); /* 半透明 */
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px auto;
-    width: fit-content;
-}
-
-/* 音乐播放器 */
-#music-player-overlay {
-    background-color: rgba(227, 242, 255, 0.9);
-    backdrop-filter: blur(5px);
+    color: var(--text-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* 电池图标 */
 .battery-icon {
     border: 1px solid var(--border-color);
-    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .battery-level {
     background-color: var(--accent-color);
-    }
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(242, 248, 255, 0.5);
+}
