@@ -44,6 +44,20 @@ body {
     border: 1px solid var(--border-color);
 }
 
+/* 添加手机链挂件 */
+#phone-frame::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -230px;
+    width: 300px;
+    height: 400px;
+    background-image: url('https://files.catbox.moe/ra3nmu.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
 #phone-screen {
     background-color: transparent; /* 屏幕背景透明 */
     border-radius: 25px;
