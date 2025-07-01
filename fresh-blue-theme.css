@@ -149,7 +149,6 @@ body {
 /* 聊天界面 - 全透明带磨砂效果 */
 #chat-messages {
     background-color: transparent;
-    backdrop-filter: blur(8px);
 }
 
 /* 消息气泡保持原样 */
