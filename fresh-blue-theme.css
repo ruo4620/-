@@ -1,4 +1,12 @@
-/* 冰川（沁柠茶）主题 - 远程CSS文件 */
+/**
+ * 冰川（沁柠茶）主题 - EPhone 模拟器
+ * 色调方案：
+ * 1. 浅冰蓝 #E3F2FF
+ * 2. 柔云蓝 #BEDDFF
+ * 3. 奶霜白 #F2F8FF
+ * 4. 晴空蓝 #9BCAFF
+ */
+
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -12,172 +20,175 @@
     --screen-height: 630px;
     
     /* 冰川色调配色 */
-    --primary-bg: #F2F8FF;       /* 奶霜白 */
-    --secondary-bg: #FFFFFF;     /* 纯白 */
-    --border-color: #BEDDFF;     /* 柔云蓝 */
-    --text-primary: #4A6FA5;     /* 深蓝文本 */
-    --text-secondary: #7D9BC1;   /* 中蓝文本 */
-    --accent-color: #9BCAFF;     /* 晴空蓝 */
-    --highlight-color: #E3F2FF;  /* 浅冰蓝 */
+    --primary-bg: #F2F8FF;       /* 奶霜白 - 主背景 */
+    --secondary-bg: #FFFFFF;     /* 纯白 - 次要背景 */
+    --border-color: #BEDDFF;     /* 柔云蓝 - 边框 */
+    --text-primary: #5A8BC6;     /* 深蓝 - 主要文字 */
+    --text-secondary: #8A8A8A;   /* 灰色 - 次要文字 */
+    --accent-color: #9BCAFF;     /* 晴空蓝 - 强调色 */
+    --highlight-color: #E3F2FF;  /* 浅冰蓝 - 高亮 */
     
-    /* 消息气泡 */
-    --user-bubble: #E3F2FF;
-    --ai-bubble: #FFFFFF;
-    --user-text: #3A5A80;
-    --ai-text: #4A4A4A;
-    
-    /* 按钮 */
-    --button-bg: #9BCAFF;
-    --button-text: #FFFFFF;
-    --button-hover: #BEDDFF;
+    /* 字体设置 */
+    --main-font: '天使喵喵酱', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* 基础样式重置 */
-* {
-    font-family: '天使喵喵酱', -apple-system, BlinkMacSystemFont, sans-serif;
-    box-sizing: border-box;
-}
-
-/* 手机框架 */
+/* 手机框架样式 */
 #phone-frame {
     padding: 8px;
-    background: linear-gradient(135deg, #E3F2FF 0%, #F2F8FF 100%);
+    background: linear-gradient(145deg, #E3F2FF, #FFFFFF);
     border-radius: 30px;
     box-shadow: 0 20px 20px rgba(0,0,0,0.15), 
-                inset 0 2px 4px rgba(255,255,255,0.3);
+                inset 0 2px 4px rgba(255,255,255,0.5);
     position: relative;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
 }
 
-/* 状态栏 */
+/* 状态栏样式 */
 #status-bar {
-    background: rgba(242, 248, 255, 0.7);
+    background: rgba(242, 248, 255, 0.8);
     color: var(--text-primary);
-    border-bottom: 1px solid var(--border-color);
+    font-family: var(--main-font);
 }
 
-/* 主屏幕 */
+/* 主屏幕样式 */
 #home-screen {
-    background: linear-gradient(to bottom, #F2F8FF 0%, #E3F2FF 100%);
+    background: linear-gradient(to bottom, #E3F2FF, #F2F8FF);
 }
 
 /* 时钟样式 */
 #main-time {
     color: var(--text-primary);
+    font-family: var(--main-font);
     text-shadow: 0 2px 4px rgba(155, 202, 255, 0.3);
 }
 
-/* 应用图标 */
+/* 应用图标样式 */
 .app-icon {
-    background-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.7);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px rgba(155, 202, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .app-icon:hover {
-    background-color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(155, 202, 255, 0.3);
+    background: rgba(227, 242, 255, 0.9);
+    transform: translateY(-2px);
 }
 
-/* 聊天消息气泡 */
+/* 聊天消息气泡样式 */
 .message-bubble .content {
     position: relative;
     padding: 12px;
     border-radius: 18px;
+    font-family: var(--main-font);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1), 
                 inset 0 2px 10px rgba(255,255,255,0.5);
-    font-size: 15px;
-    line-height: 1.4;
 }
 
+/* 用户消息气泡 */
 .message-bubble.user .content {
     background: radial-gradient(
         ellipse at 100% 20%,
-        var(--user-bubble) 0%,
-        rgba(255, 255, 255, 0.8) 70%,
-        rgba(255, 255, 255, 0.6) 100%
+        rgba(155, 202, 255, 0.7) 0%,
+        rgba(190, 221, 255, 0.5) 40%,
+        rgba(242, 248, 255, 0.4) 100%
     );
-    color: var(--user-text);
-    border: 1px solid var(--border-color);
+    color: #3A6EA5;
+    border: 1px solid #BEDDFF;
 }
 
+/* AI消息气泡 */
 .message-bubble.ai .content {
-    background: var(--ai-bubble);
-    color: var(--ai-text);
+    background: linear-gradient(
+        135deg,
+        rgba(242, 248, 255, 0.9) 0%,
+        rgba(227, 242, 255, 0.7) 100%
+    );
+    color: #5A8BC6;
+    border: 1px solid #E3F2FF;
+}
+
+/* 输入区域样式 */
+#chat-input-area {
+    background: rgba(242, 248, 255, 0.9);
+    border-top: 1px solid var(--border-color);
+}
+
+#chat-input {
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--main-font);
 }
 
 /* 按钮样式 */
-.button, .form-button {
-    background-color: var(--button-bg);
-    color: var(--button-text);
+.action-button, .form-button {
+    background: linear-gradient(to bottom, #9BCAFF, #BEDDFF);
+    color: white;
     border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    transition: all 0.3s ease;
+    border-radius: 18px;
+    font-family: var(--main-font);
     box-shadow: 0 2px 4px rgba(155, 202, 255, 0.3);
+    transition: all 0.2s ease;
 }
 
-.button:hover, .form-button:hover {
-    background-color: var(--button-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(155, 202, 255, 0.4);
+.action-button:hover, .form-button:hover {
+    background: linear-gradient(to bottom, #BEDDFF, #9BCAFF);
+    transform: translateY(-1px);
 }
 
-/* 输入框样式 */
-input, textarea, select {
-    background-color: rgba(255, 255, 255, 0.8);
+/* 模态框样式 */
+.modal-content {
+    background: linear-gradient(to bottom, #F2F8FF, #E3F2FF);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 8px 12px;
     color: var(--text-primary);
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-color);
-    background-color: white;
+    font-family: var(--main-font);
 }
 
 /* 音乐播放器样式 */
-#music-player-overlay {
-    background: rgba(242, 248, 255, 0.9);
-    border: 2px solid var(--border-color);
+.music-player-window {
+    background: rgba(242, 248, 255, 0.95);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
 }
 
-/* 动画效果 */
-@keyframes gentleSway {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(1.5deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-1.5deg); }
+/* 特殊效果 - 冰川光泽 */
+.app-icon .icon-bg, .modal-content, .message-bubble .content {
+    position: relative;
+    overflow: hidden;
 }
 
-/* 应用摇摆动画到装饰元素 */
-.decorative-element {
-    animation: gentleSway 8s ease-in-out infinite;
+.app-icon .icon-bg:after, .modal-content:after, .message-bubble .content:after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0) 55%
+    );
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
 }
 
-/* 主题切换器样式 */
-.theme-selector label {
-    background: rgba(155, 202, 255, 0.2);
-    border-radius: 12px;
-    padding: 6px 12px;
-    margin: 4px;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.theme-selector label:hover {
-    background: rgba(155, 202, 255, 0.4);
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    20% { transform: translateX(100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
 }
 
 /* 响应式调整 */
-@media (max-width: 320px) {
+@media (max-width: 400px) {
     :root {
         --screen-width: 100%;
         --screen-height: auto;
     }
-}
+    
+    #phone-frame {
+        border-radius: 20px;
+    }
+    }
