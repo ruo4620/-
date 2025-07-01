@@ -1,168 +1,128 @@
-/* 寒蝉半圆体字体定义 */
-@font-face {
-  font-family: '寒蝉半圆体';
-  src: url('http://sharkpan.xyz/f/rDgWS6/%E5%AF%92%E8%9D%89%E5%8D%8A%E5%9C%86%E4%BD%93v3.0.ttf');
+/* 零度冰泉主题 - 远程主题CSS */
+:root {
+    /* 主色调 */
+    --glacier: #CCCCCC;
+    --zero-degree: #D9D9D9;
+    --transparent: #E8E8E6;
+    --source: #F2F2F2;
+    
+    /* 应用颜色变量 */
+    --primary-bg: var(--source);
+    --secondary-bg: var(--transparent);
+    --header-bg: var(--zero-degree);
+    --border-color: var(--glacier);
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --accent-color: #7FB3D5; /* 添加一点蓝色作为点缀 */
 }
 
-/* 基础样式重置 */
+/* 全局样式 */
 body {
-  font-family: '寒蝉半圆体', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
 }
 
-/* 纤细渐变蓝手机外框 */
-#phone-frame {
-  background: linear-gradient(135deg, #a8d8ea 0%, #7ab3d0 50%, #4d8eb9 100%);
-  border-radius: 30px;
-  padding: 8px;
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-  border: 1px solid #4d8eb9;
-  width: calc(100% - 16px);
-  height: calc(100% - 16px);
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* 手机屏幕 */
-#phone-screen {
-  background-color: #f5f9fc;
-  border-radius: 25px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-/* 状态栏简化 */
+/* 状态栏 */
 #status-bar {
-  background: transparent;
-  padding: 5px 15px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* 应用网格背景 */
+/* 通知栏 */
+#notification-bar {
+    background-color: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 主屏幕 */
 #home-screen {
-  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+    background-color: var(--primary-bg);
 }
 
-/* 像素风聊天气泡 */
-.message-bubble {
-  position: relative;
-  padding: 8px 12px;
-  margin: 8px;
-  max-width: 70%;
-  font-size: 14px;
-  line-height: 1.4;
-  border-radius: 0;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+/* 应用图标 */
+.app-icon {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+}
+.app-icon:hover {
+    background-color: var(--zero-degree);
 }
 
-/* 接收消息气泡 */
-.message-bubble.received {
-  background-color: #ffffff;
-  border: 2px solid #7ab3d0;
-  color: #333;
-  margin-right: auto;
-  border-image: repeating-linear-gradient(45deg, #7ab3d0, #7ab3d0 2px, white 2px, white 4px) 2;
-}
-
-/* 发送消息气泡 */
-.message-bubble.sent {
-  background-color: #a8d8ea;
-  border: 2px solid #4d8eb9;
-  color: #333;
-  margin-left: auto;
-  border-image: repeating-linear-gradient(45deg, #4d8eb9, #4d8eb9 2px, #a8d8ea 2px, #a8d8ea 4px) 2;
-}
-
-/* 所有屏幕的渐变蓝背景 */
-.screen {
-  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
-}
-
-/* 壁纸屏幕特殊处理 */
-#wallpaper-screen {
-  background: transparent;
-}
-
-/* 壁纸预览区域 */
-#wallpaper-preview {
-  background-color: #e6f2ff;
-  border: 2px dashed #7ab3d0;
+/* 头部导航 */
+.header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* 按钮样式 */
-.button, .form-button {
-  background: linear-gradient(135deg, #7ab3d0 0%, #4d8eb9 100%);
-  border: none;
-  color: white;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-family: '寒蝉半圆体';
-  font-size: 14px;
-  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+.button, .form-button, .action-button {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.button:hover, .form-button:hover, .action-button:hover {
+    background-color: var(--zero-degree);
 }
 
-.button:hover, .form-button:hover {
-  background: linear-gradient(135deg, #8ac0dd 0%, #5d9dc7 100%);
-}
-
-/* 输入框样式 */
+/* 输入框 */
 input, textarea, select {
-  border: 1px solid #7ab3d0;
-  border-radius: 4px;
-  padding: 8px;
-  font-family: '寒蝉半圆体';
-  background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
 }
 
-/* 应用图标样式 */
-.app-icon {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(122, 179, 208, 0.2);
-  transition: transform 0.2s;
+/* 聊天界面 */
+#chat-messages {
+    background-color: var(--primary-bg);
+}
+.message.ai {
+    background-color: var(--secondary-bg);
+    border-color: var(--border-color);
+}
+.message.user {
+    background-color: var(--accent-color);
+    color: white;
 }
 
-.app-icon:hover {
-  transform: scale(1.05);
-}
-
-/* 模态窗口样式 */
+/* 模态对话框 */
 .modal-content {
-  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
-  border: 2px solid #7ab3d0;
-  border-radius: 8px;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
 }
 
-/* 音乐播放器样式 */
-.music-player-window {
-  background: linear-gradient(135deg, rgba(168, 216, 234, 0.9) 0%, rgba(122, 179, 208, 0.9) 100%);
-  border: 2px solid #4d8eb9;
-  border-radius: 8px;
-}
-
-/* 时钟样式 */
-#clock-container {
-  color: #4d8eb9;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(122, 179, 208, 0.1);
-}
-
+/* 滚动条 */
 ::-webkit-scrollbar-thumb {
-  background: #7ab3d0;
-  border-radius: 3px;
+    background-color: var(--glacier);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--transparent);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #4d8eb9;
+/* 音乐播放器 */
+.music-player-window {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+}
+
+/* 特殊效果 */
+.back-btn:hover, .action-btn:hover {
+    color: var(--accent-color);
+}
+
+/* 电池图标 */
+.battery-icon {
+    border: 1px solid var(--text-primary);
+}
+.battery-level {
+    background-color: var(--text-primary);
+}
+
+/* 时间显示 */
+#status-bar-time, #main-time {
+    color: var(--text-primary);
+}
+
+/* 表单组 */
+.form-group label {
+    color: var(--text-secondary);
 }
