@@ -1,128 +1,119 @@
-/* 零度冰泉主题 - 远程主题CSS */
 :root {
-    /* 主色调 */
+    /* 基础色系 */
     --glacier: #CCCCCC;
     --zero-degree: #D9D9D9;
-    --transparent: #E8E8E6;
+    --translucent: #E8E8E6;
     --source: #F2F2F2;
     
-    /* 应用颜色变量 */
+    /* 应用配色 */
     --primary-bg: var(--source);
-    --secondary-bg: var(--transparent);
-    --header-bg: var(--zero-degree);
+    --secondary-bg: var(--translucent);
     --border-color: var(--glacier);
+    --highlight-color: var(--zero-degree);
+    
+    /* 文字颜色 */
     --text-primary: #333333;
-    --text-secondary: #555555;
-    --accent-color: #7FB3D5; /* 添加一点蓝色作为点缀 */
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    
+    /* 特殊元素 */
+    --active-item: #E0F7FA;
+    --notification-bg: rgba(200, 230, 255, 0.9);
+    
+    /* 按钮 */
+    --button-bg: var(--zero-degree);
+    --button-text: var(--text-primary);
+    --button-hover: var(--glacier);
+    
+    /* 聊天泡泡 */
+    --chat-bubble-user: #E3F2FD;
+    --chat-bubble-ai: #FFFFFF;
+    --chat-bubble-border: var(--border-color);
 }
 
-/* 全局样式 */
+/* 整体布局样式 */
 body {
     background-color: var(--primary-bg);
     color: var(--text-primary);
 }
 
+#phone-frame {
+    background: linear-gradient(135deg, var(--translucent), var(--source));
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#phone-screen {
+    background-color: var(--primary-bg);
+}
+
 /* 状态栏 */
 #status-bar {
-    background-color: var(--header-bg);
+    background-color: rgba(242, 242, 242, 0.9);
+    color: var(--text-primary);
     border-bottom: 1px solid var(--border-color);
-}
-
-/* 通知栏 */
-#notification-bar {
-    background-color: var(--secondary-bg);
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* 主屏幕 */
-#home-screen {
-    background-color: var(--primary-bg);
 }
 
 /* 应用图标 */
 .app-icon {
     background-color: var(--secondary-bg);
     border: 1px solid var(--border-color);
-}
-.app-icon:hover {
-    background-color: var(--zero-degree);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* 头部导航 */
-.header {
-    background-color: var(--header-bg);
-    border-bottom: 1px solid var(--border-color);
+.app-icon:hover {
+    background-color: var(--highlight-color);
 }
 
 /* 按钮样式 */
-.button, .form-button, .action-button {
-    background-color: var(--secondary-bg);
+.button, .form-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: 1px solid var(--border-color);
-    color: var(--text-primary);
-}
-.button:hover, .form-button:hover, .action-button:hover {
-    background-color: var(--zero-degree);
+    transition: all 0.2s ease;
 }
 
-/* 输入框 */
-input, textarea, select {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
+.button:hover, .form-button:hover {
+    background-color: var(--button-hover);
 }
 
 /* 聊天界面 */
 #chat-messages {
     background-color: var(--primary-bg);
 }
-.message.ai {
-    background-color: var(--secondary-bg);
-    border-color: var(--border-color);
-}
-.message.user {
-    background-color: var(--accent-color);
-    color: white;
+
+.chat-bubble.user {
+    background-color: var(--chat-bubble-user);
+    border: 1px solid var(--chat-bubble-border);
 }
 
-/* 模态对话框 */
+.chat-bubble.ai {
+    background-color: var(--chat-bubble-ai);
+    border: 1px solid var(--chat-bubble-border);
+}
+
+/* 输入区域 */
+#chat-input {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+}
+
+/* 模态框 */
 .modal-content {
     background-color: var(--primary-bg);
     border: 1px solid var(--border-color);
-}
-
-/* 滚动条 */
-::-webkit-scrollbar-thumb {
-    background-color: var(--glacier);
-}
-::-webkit-scrollbar-track {
-    background-color: var(--transparent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* 音乐播放器 */
-.music-player-window {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
+#music-player-overlay {
+    background-color: rgba(242, 242, 242, 0.95);
 }
 
 /* 特殊效果 */
-.back-btn:hover, .action-btn:hover {
-    color: var(--accent-color);
+.notification {
+    background-color: var(--notification-bg);
 }
 
-/* 电池图标 */
-.battery-icon {
-    border: 1px solid var(--text-primary);
-}
-.battery-level {
-    background-color: var(--text-primary);
-}
-
-/* 时间显示 */
-#status-bar-time, #main-time {
-    color: var(--text-primary);
-}
-
-/* 表单组 */
-.form-group label {
-    color: var(--text-secondary);
+.active-item {
+    background-color: var(--active-item);
 }
