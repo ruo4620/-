@@ -9,14 +9,7 @@
     /* 文字颜色 */
     --text-primary: #2C3E50;        /* 深蓝灰 - 主要文字 */
     --text-secondary: #5D6D7E;      /* 中灰蓝 - 次要文字 */
-    --text-on-primary: #FFFFFF;     /* 白色 - 主色上的文字 */
-    
-    /* 聊天气泡 */
-    --bubble-user-bg: var(--primary-color);      /* 用户气泡背景 */
-    --bubble-user-text: var(--text-primary);     /* 用户气泡文字 */
-    --bubble-ai-bg: var(--accent-color);         /* AI气泡背景 */
-    --bubble-ai-text: var(--text-primary);       /* AI气泡文字 */
-    --bubble-border-radius: 18px;                /* 气泡圆角 */
+    --text-on-primary: #FFFFFF;     /* 白色 - 主色上的文字 */           
     
     /* 界面元素 */
     --header-bg: var(--primary-color);           /* 头部背景 */
