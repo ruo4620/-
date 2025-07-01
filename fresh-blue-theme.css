@@ -1,4 +1,4 @@
-/* 冰川（沁柠茶）主题 - 最终完美版 */
+/* 冰川（沁柠茶）主题 - 最终修改版 */
 @font-face {
     font-family: '天使喵喵酱';
     src: url('https://sharkpan.xyz/f/31QgUe/天使喵喵酱2-80(1).ttf') format('truetype');
@@ -25,7 +25,7 @@
     --notification-bg: #E3F2FF;
     --notification-text: #3A6BA5;
     --frosted-opacity: 0.92;
-    --app-icon-image: url('https://i.postimg.cc/fyhrmL8m/202507011452198853.png'); /* 新增应用图标变量 */
+    --app-icon-mask: url('https://i.postimg.cc/fyhrmL8m/202507011452198853.png'); /* 新增应用图标遮罩 */
 }
 
 /* 基础样式 */
@@ -52,7 +52,7 @@ body {
     position: relative;
 }
 
-/* 状态栏 - 减小高度 */
+/* 状态栏 - 高度减小 */
 #status-bar {
     background-color: var(--header-bg);
     color: var(--header-text);
@@ -100,7 +100,7 @@ body {
     opacity: var(--frosted-opacity);
 }
 
-/* 应用图标 - 使用新图片 */
+/* 应用图标 - 全透明容器 + 统一图片覆盖 */
 .app-icon {
     display: flex;
     flex-direction: column;
@@ -119,7 +119,7 @@ body {
 .app-icon .icon-bg {
     width: 50px;
     height: 50px;
-    background: var(--app-icon-image) center/contain no-repeat; /* 使用新图标 */
+    background-color: var(--accent-color);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -127,6 +127,26 @@ body {
     margin-bottom: 6px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* 新增：统一图标覆盖 */
+.app-icon .icon-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--app-icon-mask);
+    background-size: 70% 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+}
+
+.app-icon .icon-bg img {
+    visibility: hidden; /* 隐藏原有图标 */
 }
 
 .app-icon .label {
@@ -142,7 +162,7 @@ body {
 
 /* 聊天界面 - 全透明无磨砂 */
 #chat-messages {
-    background-color: transparent; /* 完全透明 */
+    background-color: transparent; /* 移除磨砂效果 */
 }
 
 /* 消息气泡保持原样 */
@@ -183,7 +203,7 @@ body {
     border-top: 1px solid var(--border-color);
 }
 
-/* 交互页面保留背景 */
+/* 所有交互页面保留背景 */
 #world-book-screen,
 #world-book-editor-screen,
 #api-settings-screen,
@@ -244,4 +264,4 @@ button:hover, .form-button:hover {
 
 ::-webkit-scrollbar-track {
     background-color: rgba(242, 248, 255, 0.5);
-}
+    }
