@@ -1,0 +1,49 @@
+:root {
+    --primary-color: #4a89dc;
+    --secondary-color: #5d9cec;
+    --accent-color: #e6f0fa;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --background-primary: #f5f7fa;
+    --background-secondary: #ffffff;
+    --border-color: #e0e6ed;
+    --message-bg-sent: #e6f0fa;
+    --message-bg-received: #ffffff;
+    --message-text-sent: #2c3e50;
+    --message-text-received: #2c3e50;
+    --message-border-sent: #d0e0f0;
+    --message-border-received: #e0e6ed;
+    --status-bar-bg: #4a89dc;
+    --status-bar-text: #ffffff;
+    --header-bg: #4a89dc;
+    --header-text: #ffffff;
+    --input-bg: #ffffff;
+    --input-text: #2c3e50;
+    --button-primary-bg: #4a89dc;
+    --button-primary-text: #ffffff;
+    --button-secondary-bg: #e6f0fa;
+    --button-secondary-text: #4a89dc;
+}
+
+/* 其他元素样式 */
+#phone-frame {
+    background-color: var(--background-primary);
+}
+
+#home-screen {
+    background: linear-gradient(to bottom, var(--primary-color), var(--background-primary));
+}
+
+.app-icon .icon-bg {
+    background-color: var(--secondary-color);
+}
+
+.chat-message.sent {
+    background-color: var(--message-bg-sent);
+    border-color: var(--message-border-sent);
+}
+
+.chat-message.received {
+    background-color: var(--message-bg-received);
+    border-color: var(--message-border-received);
+}
